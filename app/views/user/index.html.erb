@@ -1,0 +1,10 @@
+<div class="container col-md-12">
+
+  <% @users.each do |user| %>
+    <div class="container user-box">
+      <h3><%= user.username %></h3>
+      <h4><%= user.posts.length %></h4>
+    </div>
+  <% end %>
+
+</div>

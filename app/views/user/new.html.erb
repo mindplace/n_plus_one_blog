@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-md-6">
+    <h1>Registration</h1>
+
+    <%= render partial: 'shared/error_messages', locals: { object: @user } %>
+
+    <div class="username-box">
+      <%= form_for :user, url: { action: "create" } do |f| %>
+
+        <div class="row-xs-3 form_group">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'form-control' %>
+        </div><br>
+
+        <div class="row-xs-3 form_group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control'  %>
+        </div>
+        <br>
+        <%= f.submit "Create account", class: "btn btn-success" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

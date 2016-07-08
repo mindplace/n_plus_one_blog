@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
-
   def new
     @user = User.new
   end

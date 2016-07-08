@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1><%= @user.username %></h1>
+
+    <% if @user.has_posts? %>
+      <h2>All posts:</h2>
+
+      <% @user.posts.each do |post| %>
+        <div class="container post">
+          <p class="post-body"><%= post.body %></p>
+          <h5 class="date"><%= post.created_at %></h5>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="container">
+        <p></i><%= link_to "Make your first post!", new_post_path %></i><p>
+      </div>
+    <% end %>
+  </div>
+</div>
