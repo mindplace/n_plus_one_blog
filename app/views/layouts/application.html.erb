@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NPlusOneBlog</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>N+1 Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="Site">
 
-<%= yield %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">N+1 Blog</a>
+      </div>
 
+      <ul class="nav navbar-nav navbar-left">
+        <li>some link</li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to current_user.username, user_path(current_user) %></li>
+          <li><%= link_to "Logout", logout_path %></li>
+
+        <% else %>
+          <li><%= link_to " Register", new_user_path %></li>
+          <li><%= link_to " Login", login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="Site-content">
+    <%= yield %>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul>
+        <li>some link</li>
+        <li>some link</li>
+      </ul>
+    </div>
+  </footer>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
