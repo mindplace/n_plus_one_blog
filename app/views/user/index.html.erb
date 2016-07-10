@@ -9,7 +9,9 @@
 
       <div class="col-md-8 col-md-offset-2 panel panel-default panel-body">
         <h4><%= user.username %></h4>
-        <p class="date"><i>last posted <%= time_ago_in_words(user.posts.last.created_at) %> ago</i></p>
+        <% if user.posts.last %>
+          <p class="date"><i>last posted <%= time_ago_in_words(user.posts.last.created_at) %> ago</i></p>
+        <% end %>
       </div>
 
     <% end %>
