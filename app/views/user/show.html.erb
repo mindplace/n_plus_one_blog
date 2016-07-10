@@ -1,13 +1,17 @@
 <div class="container">
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="panel-body">
       <h1><%= @user.username %></h1>
+      <br>
+      <p class="date"><i><%= pluralize(@user.posts.length, "post") %><br>last posted <%= time_ago_in_words(@user.posts.last.created_at) %> ago</i></p>
     </div>
     <% if @user.has_posts? %>
 
+
+
       <% @user.posts.each do |post| %>
         <div class="panel panel-default panel-body">
-          <h3 class="post-body"><%= post.body %></h3>
+          <h4 class="post-body"><%= post.body %></h4>
           <p class="date"><i>posted <%= time_ago_in_words(post.created_at) %> ago</i></p>
         </div>
       <% end %>
