@@ -9,11 +9,9 @@
 
       <div class="col-md-8 col-md-offset-2 panel panel-default panel-body">
         <h4><%= user.username %></h4>
-        <% if user.posts.length > 0 %>
-          <p class="date"><i><%= pluralize(user.posts.length, "post") %>, last posted <%= time_ago_in_words(user.posts.last.created_at) %> ago</i></p>
-        <% else %>
-          <p class="date"><i>no posts yet</i></p>
-        <% end %>
+
+          <p class="date"><i>last posted <%= (user.latest_post.created_at) %> ago</i></p>
+
       </div>
 
     <% end %>
