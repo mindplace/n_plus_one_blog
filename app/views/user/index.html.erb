@@ -1,10 +1,18 @@
-<div class="container col-md-12">
+<div class="container">
+  <div class="col-md-12">
 
-  <% @users.each do |user| %>
-    <div class="container user-box">
-      <h3><%= user.username %></h3>
-      <h4><%= user.posts.length %></h4>
-    </div>
-  <% end %>
+    <% @users.each do |user| %>
 
+      <div class="col-md-8 col-md-offset-2 panel panel-default panel-body">
+        <h4><%= user.username %></h4>
+        <% if user.posts.length > 0 %>
+          <p class="date"><i>last posted <%= time_ago_in_words(user.posts.last.created_at) %> ago</i></p>
+        <% else %>
+          <p class="date"><i>no posts yet</i></p>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  </div>
 </div>
