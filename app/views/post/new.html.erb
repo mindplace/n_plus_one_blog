@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-md-6">
+    <h1>Make a New Post</h1>
+
+    <%= render partial: 'shared/error_messages', locals: { object: @post } %>
+
+    <div class="username-box">
+      <%= form_for :post, url: { action: "create" } do |f| %>
+      
+
+        <div class="row-xs-3 form_group">
+          <%= f.label :body %>
+          <%= f.text_field :body, class: 'form-control' %>
+        </div><br>
+
+        <%= f.submit "Create new post", class: "btn btn-success" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

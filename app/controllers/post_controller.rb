@@ -1,4 +1,8 @@
 class PostController < ApplicationController
+  def index
+    @posts = Post.order(created_at: :desc).limit(5)
+  end
+
   def new
     if logged_in?
       @post = Post.new
@@ -17,12 +21,12 @@ class PostController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:body, :user_id)
+    params.require(:post).permit(:body).merge(user_id: current_user.id)
   end
 end

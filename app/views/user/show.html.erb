@@ -1,14 +1,14 @@
 <div class="container">
   <div class="col-md-12">
-    <h1><%= @user.username %></h1>
-
+    <div class="panel-body">
+      <h1><%= @user.username %></h1>
+    </div>
     <% if @user.has_posts? %>
-      <h2>All posts:</h2>
 
       <% @user.posts.each do |post| %>
-        <div class="container post">
-          <p class="post-body"><%= post.body %></p>
-          <h5 class="date"><%= post.created_at %></h5>
+        <div class="panel panel-default panel-body">
+          <h3 class="post-body"><%= post.body %></h3>
+          <p class="date"><i>posted <%= time_ago_in_words(post.created_at) %> ago</i></p>
         </div>
       <% end %>
     <% else %>

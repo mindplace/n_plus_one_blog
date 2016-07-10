@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="col-md-8">
+    <h1><%= @post.user.username %> says...</h1>
+    <div class="panel panel-default panel-body">
+      <h3><%= @post.body %></h3>
+      <p class="date"><i>posted <%= time_ago_in_words(@post.created_at) %> ago</i></p>
+    </div>
+  </div>
+</div>

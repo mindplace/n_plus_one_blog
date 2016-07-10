@@ -17,12 +17,14 @@
         <a class="navbar-brand" href="/">N+1 Blog</a>
       </div>
 
-      <ul class="nav navbar-nav navbar-left">
-        <li>some link</li>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Users", user_index_path %></li>
+        <li><%= link_to "Posts", post_index_path %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
+          <li><%= link_to "New post", new_post_path %></li>
           <li><%= link_to current_user.username, user_path(current_user) %></li>
           <li><%= link_to "Logout", logout_path %></li>
 

@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="col-md-6">
+  <div class="col-md-6 panel-body">
     <%= image_tag("database_why_u_no_work.jpg", width: "100%") %>
   </div>
 
   <div class="col-md-6">
-    <h1>N+1 Errors!</h1>
-    <p>This is a little app designed to showcase n+1 errors and their resolution.</p>
+    <div class="panel panel-default panel-body add-margin-top">
+      <h1>N+1 Errors!</h1>
+      <p>This is a little app designed to showcase n+1 errors and their resolution.</p>
 
-    <hr>
+      <hr>
 
-    <h2>This app's schema:</h2>
-    <p><b>Users</b>: a user has many posts<br>
-       <b>Posts</b>: a post has a single user</p>
-
+      <h2>This app's schema:</h2>
+      <%= image_tag("schema.png", width: "80%") %>
+    </div>
   </div>
 </div>
